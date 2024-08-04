@@ -49,6 +49,7 @@ Conversation.init(
   {
     sequelize,
     modelName: 'Conversation',
+    tableName: 'conversations',
   }
 );
 
