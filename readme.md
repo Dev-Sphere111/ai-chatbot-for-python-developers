@@ -22,7 +22,7 @@ This project is a Node.js API server that interacts with a Python LLM server to 
 1. Clone the repository.
 
 ```sh
-git clone <repository_url>
+git clone https://github.com/ANURADHAJHA99/node-api-server.git
 cd NODE-API-SERVER
 ```
 
@@ -35,11 +35,11 @@ npm install
 3. Create a `.env` file with the following content:
 
 ```env
-DATABASE_NAME=your_db_name
-DATABASE_USER=your_db_user
-DATABASE_PASSWORD=your_db_password
-DATABASE_HOST=your_db_host
-DATABASE_PORT=your_db_port
+DATABASE_NAME=koyebdb
+DATABASE_USER=koyeb-adm
+DATABASE_PASSWORD=QS2Riwj0gkoC
+DATABASE_HOST=ep-autumn-shape-a2fl96f4.eu-central-1.pg.koyeb.app
+DATABASE_PORT=5432
 ```
 
 4. Build and run the Docker container.
@@ -162,4 +162,3 @@ Missing baseUrl in compilerOptions. tsconfig-paths will be skipped
 Unable to connect to the database: ConnectionRefusedError [SequelizeConnectionRefusedError]
 ```
 It may be necessary to restart the server as it is hosted on-prem and may occasionally experience connection issues.
-
