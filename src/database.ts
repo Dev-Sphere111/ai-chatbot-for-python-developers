@@ -1,18 +1,15 @@
 import { Sequelize } from 'sequelize';
 
 export const sequelize = new Sequelize(
-  process.env.DATABASE_NAME || 'koyebdb',
-  process.env.DATABASE_USER || 'koyeb-adm',
-  process.env.DATABASE_PASSWORD || 'QS2Riwj0gkoC',
+  process.env.POSTGRES_DB || 'shalom',
+  process.env.POSTGRES_USER || 'admin',
+  process.env.POSTGRES_PASSWORD || 'Letsmakeshalom!24',
   {
-    host: process.env.DATABASE_HOST || 'ep-autumn-shape-a2fl96f4.eu-central-1.pg.koyeb.app',
+    host: process.env.POSTGRES_HOST || 'e2e-107-79.ssdcloudindia.net',
     port: Number(process.env.DATABASE_PORT) || 5432,
     dialect: 'postgres',
     dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false
-      }
+      ssl: false
     }
   }
 );

@@ -32,16 +32,6 @@ cd NODE-API-SERVER
 npm install
 ```
 
-3. Create a `.env` file with the following content:
-
-```env
-DATABASE_NAME=koyebdb
-DATABASE_USER=koyeb-adm
-DATABASE_PASSWORD=QS2Riwj0gkoC
-DATABASE_HOST=ep-autumn-shape-a2fl96f4.eu-central-1.pg.koyeb.app
-DATABASE_PORT=5432
-```
-
 4. Build and run the Docker container.
 
 ```sh

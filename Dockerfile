@@ -1,20 +1,21 @@
-# Use an official Node runtime as a parent image
+# Use the official Node.js image as a base
 FROM node:14
 
-# Set the working directory
+# Create and change to the app directory
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
-COPY . /app
-
-# Install any needed packages specified in package.json
+# Install app dependencies
+COPY package.json package-lock.json ./
 RUN npm install
 
-# Copy the .env file
-COPY .env .env
+# Copy the rest of the application code
+COPY . .
 
-# Make port 3000 available to the world outside this container
+# Compile TypeScript to JavaScript
+RUN npm run build
+
+# Expose the port the app runs on
 EXPOSE 3000
 
-# Run app.ts when the container launches
+# Start the app
 CMD ["npm", "start"]
