@@ -1,7 +1,7 @@
 
 # 🚀 Node.js API Server
 
-This project is a Node.js API server that interacts with a Python LLM server to process user queries. It supports selecting a model, sending queries, and maintaining conversation history.
+This project is a Node.js API server that interacts with a Python LLM server to process user queries. It supports selecting a model, sending queries, and maintaining conversation history. Please start the server for pyhton-llm to check the results for the APIs mentioned below.
 
 ## ✨ Features
 
