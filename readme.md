@@ -32,6 +32,16 @@ cd NODE-API-SERVER
 npm install
 ```
 
+3. Create the .env file and add the following content
+
+```sh
+POSTGRES_HOST=e2e-102-21.ssdcloudindia.net
+POSTGRES_USER=admin
+POSTGRES_PASSWORD=Letsmakeshalom!24
+POSTGRES_DB=shalom
+DATABASE_PORT=5432
+```
+
 4. Build and run the Docker container.
 
 ```sh
