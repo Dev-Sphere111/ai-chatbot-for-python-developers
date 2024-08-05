@@ -6,7 +6,7 @@ export const sendQueryToPython = async (
   question: string,
   model: string
 ) => {
-  const response = await axios.post('http://host.docker.internal:8000/query', {
+  const response = await axios.post('http://0.0.0.0:8000/query', {
     user_id,
     question: question,
     model: model
