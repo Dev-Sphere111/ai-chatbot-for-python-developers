@@ -32,7 +32,7 @@ cd NODE-API-SERVER
 npm install
 ```
 
-3. Create the .env file and add the following content
+3. Create the .env file in root and add the following content
 
 ```sh
 POSTGRES_HOST=e2e-102-21.ssdcloudindia.net
