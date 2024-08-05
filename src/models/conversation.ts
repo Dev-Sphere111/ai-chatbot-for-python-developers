@@ -3,11 +3,11 @@ import { sequelize } from '../database';
 
 interface ConversationAttributes {
   id: number;
-  userId: string;
+  user_id: string;
   question: string;
   answer: string;
-  createdAt?: Date;
-  updatedAt?: Date;
+  created_at?: Date;
+  updated_at?: Date;
 }
 
 interface ConversationCreationAttributes
@@ -18,12 +18,12 @@ class Conversation
   implements ConversationAttributes
 {
   public id!: number;
-  public userId!: string;
+  public user_id!: string;
   public question!: string;
   public answer!: string;
 
-  public readonly createdAt!: Date;
-  public readonly updatedAt!: Date;
+  public readonly created_at!: Date;
+  public readonly updated_at!: Date;
 }
 
 Conversation.init(
@@ -33,7 +33,7 @@ Conversation.init(
       autoIncrement: true,
       primaryKey: true,
     },
-    userId: {
+    user_id: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -45,11 +45,22 @@ Conversation.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
+    created_at: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW
+    },
+    updated_at: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW
+    }
   },
   {
     sequelize,
     modelName: 'Conversation',
     tableName: 'conversations',
+    timestamps: false, // Disable default timestamps
   }
 );
 

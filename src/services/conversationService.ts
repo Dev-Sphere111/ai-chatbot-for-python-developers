@@ -15,7 +15,7 @@ export const sendQueryToPython = async (
   const answer = response.data.answer;
 
   await Conversation.create({
-    userId: user_id,
+    user_id,
     question,
     answer,
   });
@@ -25,8 +25,8 @@ export const sendQueryToPython = async (
 
 export const getConversationHistory = async (user_id: string) => {
   return await Conversation.findAll({
-    where: { userId: user_id },
-    order: [["createdAt", "DESC"]],
+    where: { user_id: user_id },
+    order: [["created_at", "DESC"]],
   });
 };
 

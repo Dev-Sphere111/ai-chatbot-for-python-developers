@@ -123,11 +123,11 @@ You can import the provided Postman collection [here](https://dark-resonance-874
   [
     {
       "id": 1,
-      "userId": "123",
+      "user_id": "123",
       "question": "What is the capital of France?",
       "answer": "The capital of France is Paris.",
-      "createdAt": "2023-08-05T14:12:00Z",
-      "updatedAt": "2023-08-05T14:12:00Z"
+      "created_at": "2023-08-05T14:12:00Z",
+      "updated_at": "2023-08-05T14:12:00Z"
     }
   ]
   ```
@@ -143,7 +143,7 @@ You can import the provided Postman collection [here](https://dark-resonance-874
     "userId": "123",
     "question": "What is the capital of France?",
     "answer": "The capital of France is Paris.",
-    "createdAt": "2023-08-05T14:12:00Z",
+    "created_at": "2023-08-05T14:12:00Z",
     "updatedAt": "2023-08-05T14:12:00Z"
   }
   ```

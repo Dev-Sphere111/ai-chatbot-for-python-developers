@@ -10,6 +10,7 @@ export const query = async (req: Request, res: Response) => {
     const answer = await sendQueryToPython(user_id, question, model);
     res.json({ answer });
   } catch (error) {
+    console.log(error)
     res.status(500).json({ error: 'Error querying the Python server' });
   }
 };
