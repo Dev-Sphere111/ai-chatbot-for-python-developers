@@ -26,13 +26,7 @@ git clone https://github.com/ANURADHAJHA99/node-api-server.git
 cd NODE-API-SERVER
 ```
 
-2. Install the dependencies.
-
-```sh
-npm install
-```
-
-3. Create the .env file using `touch .env` in root and add the following content
+2. Create the .env file using `touch .env` in root and add the following content
 
 ```sh
 POSTGRES_HOST=e2e-102-21.ssdcloudindia.net
@@ -42,12 +36,62 @@ POSTGRES_DB=shalom
 DATABASE_PORT=5432
 ```
 
-4. Build and run the Docker container.
+3. Build and run the Docker container.
 
 ```sh
 docker build --no-cache -t node-api-server .
 docker run -p 3000:3000 --env-file .env node-api-server
 ```
+
+### 📝 Example cURL Requests
+
+#### 📦 Send Query
+
+```sh
+curl --location 'http://localhost:3000/api/conversations/query' --header 'Content-Type: application/json' --data '{
+    "user_id": "123",
+    "model": "llama2",
+    "question": "What is the capital of France?"
+}'
+```
+
+#### 📦 List Conversation History
+
+```sh
+curl --location 'http://localhost:3000/api/conversations/123'
+```
+
+#### 📦 Get Conversation Details
+
+```sh
+curl --location 'http://localhost:3000/api/conversations/detail/1'
+```
+
+### 📝 Example Conversation
+
+1. Send the first query:
+
+```sh
+curl --location 'http://localhost:3000/api/conversations/query' --header 'Content-Type: application/json' --data '{
+    "user_id": "123",
+    "model": "llama2",
+    "question": "Who is the president of the USA?"
+}'
+```
+
+2. Send a follow-up query to maintain context:
+
+```sh
+curl --location 'http://localhost:3000/api/conversations/query' --header 'Content-Type: application/json' --data '{
+    "user_id": "123",
+    "model": "llama2",
+    "question": "What age is he?"
+}'
+```
+
+### 📑 Postman Collection
+
+You can import the provided Postman collection [here](https://dark-resonance-874488.postman.co/workspace/public~d3c714b6-434c-42c6-96b0-ffa97ea17e00/collection/8821057-0252beef-aad2-4b21-8774-6ef98fae99cb?action=share&creator=8821057) to test the endpoints.
 
 ### 🌐 API Endpoints
 
@@ -104,55 +148,7 @@ docker run -p 3000:3000 --env-file .env node-api-server
   }
   ```
 
-### 📝 Example cURL Requests
 
-#### 📦 Send Query
-
-```sh
-curl --location 'http://localhost:3000/api/conversations/query' --header 'Content-Type: application/json' --data '{
-    "user_id": "123",
-    "model": "llama2",
-    "question": "What is the capital of France?"
-}'
-```
-
-#### 📦 List Conversation History
-
-```sh
-curl --location 'http://localhost:3000/api/conversations/123'
-```
-
-#### 📦 Get Conversation Details
-
-```sh
-curl --location 'http://localhost:3000/api/conversations/detail/1'
-```
-
-### 📝 Example Conversation
-
-1. Send the first query:
-
-```sh
-curl --location 'http://localhost:3000/api/conversations/query' --header 'Content-Type: application/json' --data '{
-    "user_id": "123",
-    "model": "llama2",
-    "question": "Who is the president of the USA?"
-}'
-```
-
-2. Send a follow-up query to maintain context:
-
-```sh
-curl --location 'http://localhost:3000/api/conversations/query' --header 'Content-Type: application/json' --data '{
-    "user_id": "123",
-    "model": "llama2",
-    "question": "What age is he?"
-}'
-```
-
-### 📑 Postman Collection
-
-You can import the provided Postman collection [here](https://dark-resonance-874488.postman.co/workspace/public~d3c714b6-434c-42c6-96b0-ffa97ea17e00/collection/8821057-0252beef-aad2-4b21-8774-6ef98fae99cb?action=share&creator=8821057) to test the endpoints.
 
 ### 🔧 Troubleshooting
 
