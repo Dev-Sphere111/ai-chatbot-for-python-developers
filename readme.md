@@ -1,101 +1,96 @@
+# 🚀 ai-chatbot-for-python-developers
 
-# 🚀 Node.js API Server
+This project is an **ai-chatbot-for-python-developers** system that communicates with a Python LLM backend to handle user inquiries. It facilitates model selection, query submission, and the preservation of dialogue history. Please ensure the `python-llm` server is operational to verify the results for the APIs outlined below.
 
-This project is a Node.js API server that interacts with a Python LLM server to process user queries. It supports selecting a model, sending queries, and maintaining conversation history. Please start the server for `python-llm` to check the results for the APIs mentioned below.
+## ✨ Capabilities
 
-## ✨ Features
+1. Transmit inquiries to the Python LLM backend.
+2. Enumerate dialogue history, ordered by date (newest first).
+3. Fetch particulars of a specific dialogue (questions and answers).
 
-1. Send queries to the Python LLM server.
-2. List conversation history ordered by date (descending).
-3. Retrieve details of a specific conversation (questions and responses).
+## 🛠 Commencing
 
-## 🛠 Getting Started
-
-### 📋 Prerequisites
+### 📋 Requirements
 
 - Docker
 - Node.js
 - PostgreSQL
 
-### 🔧 Setup
+### 🔧 Configuration
 
-1. Clone the repository.
+1. Duplicate the repository.
 
 ```sh
-git clone https://github.com/ANURADHAJHA99/node-api-server.git
-cd NODE-API-SERVER
+git clone https://github.com/Dev-Sphere111/ai-chatbot-for-python-developers
+cd ai-chatbot-for-python-developers
 ```
 
-2. Create the .env file using `touch .env` in root and add the following content
+2. Generate the `.env` file by executing `touch .env` in the root directory and insert the subsequent content:
 
 ```sh
-POSTGRES_HOST=e2e-102-21.ssdcloudindia.net
-POSTGRES_USER=admin
-POSTGRES_PASSWORD=Letsmakeshalom!24
-POSTGRES_DB=shalom
+POSTGRES_HOST=your_host_name
+POSTGRES_USER=your_admin_username
+POSTGRES_PASSWORD=your_password
+POSTGRES_DB=your_database_name
 DATABASE_PORT=5432
 ```
 
-3. Build and run the Docker container.
+3. Construct and launch the Docker container.
 
 ```sh
-docker build --no-cache -t node-api-server .
-docker run -p 3000:3000 --env-file .env node-api-server
+docker build --no-cache -t 🚀 ai-chatbot-for-python-developers .
+docker run -p 3000:3000 --env-file .env 🚀 ai-chatbot-for-python-developers
 ```
 
-### 📝 Example cURL Requests
+### 📝 Sample cURL Commands
 
-#### 📦 Send Query
+#### 📦 Submit Inquiry
 
 ```sh
 curl --location 'http://localhost:3000/api/conversations/query' --header 'Content-Type: application/json' --data '{
     "user_id": "123",
     "model": "llama2",
-    "question": "What is the capital of France?"
+    "question": "What is the principal city of France?"
 }'
 ```
 
-#### 📦 List Conversation History
+#### 📦 Display Dialogue History
 
 ```sh
 curl --location 'http://localhost:3000/api/conversations/123'
 ```
 
-#### 📦 Get Conversation Details
+#### 📦 Retrieve Dialogue Particulars
 
 ```sh
 curl --location 'http://localhost:3000/api/conversations/detail/1'
 ```
 
-### 📝 Example Conversation
+### 📝 Sample Dialogue
 
-1. Send the first query:
-
-```sh
-curl --location 'http://localhost:3000/api/conversations/query' --header 'Content-Type: application/json' --data '{
-    "user_id": "123",
-    "model": "llama2",
-    "question": "Who is the president of the USA?"
-}'
-```
-
-2. Send a follow-up query to maintain context:
+1. Send the initial inquiry:
 
 ```sh
 curl --location 'http://localhost:3000/api/conversations/query' --header 'Content-Type: application/json' --data '{
     "user_id": "123",
     "model": "llama2",
-    "question": "What age is he?"
+    "question": "Who is the current head of state of the USA?"
 }'
 ```
 
-### 📑 Postman Collection
+2. Send a subsequent inquiry to preserve context:
 
-You can import the provided Postman collection [here](https://dark-resonance-874488.postman.co/workspace/public~d3c714b6-434c-42c6-96b0-ffa97ea17e00/collection/8821057-0252beef-aad2-4b21-8774-6ef98fae99cb?action=share&creator=8821057) to test the endpoints.
+```sh
+curl --location 'http://localhost:3000/api/conversations/query' --header 'Content-Type: application/json' --data '{
+    "user_id": "123",
+    "model": "llama2",
+    "question": "How old are they?"
+}'
+```
 
-### 🌐 API Endpoints
+### 🌐 API Interfaces
 
-#### 📦 Send Query
+#### 📦 Submit Inquiry
 
 - **URL:** `/api/conversations/query`
 - **Method:** `POST`
@@ -104,17 +99,17 @@ You can import the provided Postman collection [here](https://dark-resonance-874
   {
     "user_id": "123",
     "model": "llama2",
-    "question": "What is the capital of France?"
+    "question": "What is the principal city of France?"
   }
   ```
 - **Response:**
   ```json
   {
-    "answer": "The capital of France is Paris."
+    "answer": "The principal city of France is Paris."
   }
   ```
 
-#### 📦 List Conversation History
+#### 📦 Display Dialogue History
 
 - **URL:** `/api/conversations/:user_id`
 - **Method:** `GET`
@@ -124,15 +119,15 @@ You can import the provided Postman collection [here](https://dark-resonance-874
     {
       "id": 1,
       "user_id": "123",
-      "question": "What is the capital of France?",
-      "answer": "The capital of France is Paris.",
+      "question": "What is the principal city of France?",
+      "answer": "The principal city of France is Paris.",
       "created_at": "2023-08-05T14:12:00Z",
       "updated_at": "2023-08-05T14:12:00Z"
     }
   ]
   ```
 
-#### 📦 Get Conversation Details
+#### 📦 Retrieve Dialogue Particulars
 
 - **URL:** `/api/conversations/detail/:id`
 - **Method:** `GET`
@@ -141,20 +136,20 @@ You can import the provided Postman collection [here](https://dark-resonance-874
   {
     "id": 1,
     "userId": "123",
-    "question": "What is the capital of France?",
-    "answer": "The capital of France is Paris.",
+    "question": "What is the principal city of France?",
+    "answer": "The principal city of France is Paris.",
     "created_at": "2023-08-05T14:12:00Z",
     "updatedAt": "2023-08-05T14:12:00Z"
   }
   ```
 
+### 🔧 Issue Resolution
 
+Should you face the subsequent error:
 
-### 🔧 Troubleshooting
-
-If you encounter the following error:
 ```
 Missing baseUrl in compilerOptions. tsconfig-paths will be skipped
 Unable to connect to the database: ConnectionRefusedError [SequelizeConnectionRefusedError]
 ```
-It may be necessary to restart the server as it is hosted on-prem and may occasionally experience connection issues.
+
+It might be required to restart the server, as it is hosted on-premises and could occasionally encounter connectivity problems.
